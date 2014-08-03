@@ -13,7 +13,7 @@ define( 'GPR_PLUGIN_NAME', 'google-places-reviews' );
 define( 'GPR_PLUGIN_NAME_PLUGIN', plugin_basename( __FILE__ ) );
 define( 'GPR_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'GPR_PLUGIN_URL', plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) );
-define( 'GPR_DEBUG', true );
+define( 'GPR_DEBUG', false );
 
 function init_google_places_reviews_widget() {
 
