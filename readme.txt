@@ -10,20 +10,25 @@ Google Places Reviews makes it a breeze for you to display reviews on your WordP
 
 == Description ==
 
-Easily display Google Reviews on your WordPress website using a powerful and intuitive widget. Ensure you're positively impacting your customer's journey by displaying reviews from Google on your business website. Great for restaurants, retail stores, franchisees, real estate firms, hotels and hospitality, and nearly any business with a website and reviews on Google.
-
-Positive reviews on websites like Google help businesses gain additional exposure and further enhance their online credibility. A [recent study](http://marketingland.com/survey-customers-more-frustrated-by-how-long-it-takes-to-resolve-a-customer-service-issue-than-the-resolution-38756) conducted by Dimensional Research found that the buying decisions of 90% of consumers are influenced by positive online reviews. Additionally, a [2012 study published on Search Engine Land](http://searchengineland.com/study-72-of-consumers-trust-online-reviews-as-much-as-personal-recommendations-114152 "View the Article Online") shows that 72% of consumers trust online reviews as much as personal recommendations. If you do the research it quickly becomes clear. Positive reviews add substantial credibility to any business and can lead to increased conversion rates and higher sales.
-
-There is significant data that shows how much consumers care about online reviews but very little information about what businesses are doing to respond to this phenomenon. Here's an idea: Display reviews on your WordPress website from Google!
-
-Google Places Reviews allows you to display up to 3 business reviews with the free version and 5 with the Pro version. Setup is quick and easy. Simply install the plugin, insert your Google API (free and documented), and drag the widget into any sidebar to configure the options.
-
-= Google Places Reviews Pro =
-[Upgrade to Google Places Reviews Pro](http://wordimpress.com/plugins/google-places-reviews-pro/ "Upgrade to Google Places Reviews Pro"). Use Promo Code: `googleplaces20off` for a 20% discount!
+Easily display Google Reviews on your WordPress website using a powerful and intuitive widget. Great for restaurants, retail stores, franchisees, real estate firms, hotels and hospitality, and nearly any business with a website and reviews on Google.
 
 [youtube https://www.youtube.com/watch?v=fXQA5kXRm88]
 
 **[View the Online Demo](http://googleplacesreviews.wordimpress.com/ "View the Online Demo of Google Places Reviews Pro")**
+
+= Why Use this Plugin? =
+
+This plugin allows you to display Google reviews on your WordPress website. Why is this important? Positive reviews on websites like Google help businesses gain additional exposure and further enhance their online credibility. A [recent study](http://marketingland.com/survey-customers-more-frustrated-by-how-long-it-takes-to-resolve-a-customer-service-issue-than-the-resolution-38756) conducted by Dimensional Research found that the buying decisions of 90% of consumers are influenced by positive online reviews. Additionally, a [2012 study published on Search Engine Land](http://searchengineland.com/study-72-of-consumers-trust-online-reviews-as-much-as-personal-recommendations-114152 "View the Article Online") found that 72% of consumers trust online reviews as much as personal recommendations. If you do the research it quickly becomes clear. Positive reviews add substantial credibility to any business and can lead to increased conversion rates and higher sales.
+
+There is significant data that shows how much consumers care about online reviews but very little information about what businesses are doing to respond to this phenomenon. How about displaying reviews on your WordPress website from Google?
+
+Google Places Reviews allows you to display up to 3 business reviews with the free version and 5 with the Pro version. Setup is quick and easy. Simply install the plugin, insert your Google API (free and documented), and drag the widget into any sidebar to configure the options.
+
+= Google Places Reviews Pro =
+
+[Upgrade to Google Places Reviews Pro](http://wordimpress.com/plugins/google-places-reviews-pro/ "Upgrade to Google Places Reviews Pro").
+
+Use Promo Code: `googleplaces20off` for a 20% discount!
 
 = Plugin Features =
 
