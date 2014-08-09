@@ -112,18 +112,6 @@
         </select>
     </p>
 
-	<!-- Limit Review Characters -->
-    <p>
-        <input id="<?php echo $this->get_field_id('review_characters'); ?>"
-               name="<?php echo $this->get_field_name('review_characters'); ?>" type="checkbox"
-               value="1" <?php checked('1', $review_characters); ?> />
-        <label for="<?php echo $this->get_field_id('review_characters'); ?>"><?php _e('Expand/Collapse Review Content', 'gpr'); ?>
-            <img src="<?php echo GPR_PLUGIN_URL . '/assets/images/help.png' ?>"
-                 title="<?php _e('Some reviews may be very long and cause the widget to have a very large height. This option uses JavaScript to expand and collapse the text.', 'gpr'); ?>"
-                 class="tooltip-info" width="16" height="16"/></label>
-    </p>
-
-
 </div><!-- /.review-options -->
 
 <h4 class="gpr-widget-toggler"><?php _e('Display Options', 'gpr'); ?>:<span></span></h4>
@@ -185,7 +173,7 @@
                name="<?php echo $this->get_field_name('hide_google_image'); ?>" type="checkbox"
                value="1" <?php checked('1', $hide_out_of_rating); ?> />
         <label
-            for="<?php echo $this->get_field_id('google_image'); ?>"><?php _e('Hide Google logo', 'gpr'); ?>
+            for="<?php echo $this->get_field_id('hide_google_image'); ?>"><?php _e('Hide Google logo', 'gpr'); ?>
             <img src="<?php echo GPR_PLUGIN_URL . '/assets/images/help.png' ?>"
                  title="<?php _e('Prevent the Google logo from displaying in the reviews widget.', 'gpr'); ?>"
                  class="tooltip-info" width="16" height="16"/></label>

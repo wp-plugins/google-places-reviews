@@ -230,7 +230,7 @@ class Google_Places_Reviews extends WP_Widget {
 			return false;
 		} //No reference set for this widget
 		elseif ( empty( $reference ) ) {
-			$this->output_error_message( __('<strong>INVALID REQUEST</strong>: Please check that this widget has a business reference set.', 'gpr'), 'error' );
+			$this->output_error_message( __( '<strong>INVALID REQUEST</strong>: Please check that this widget has a business reference set.', 'gpr' ), 'error' );
 
 			return false;
 		}
@@ -485,25 +485,21 @@ class Google_Places_Reviews extends WP_Widget {
 	 */
 	function get_star_rating( $rating, $unix_timestamp, $hide_out_of_rating, $hide_google_image ) {
 
-
-		$rating_value  = '<p class="gpr-rating-value" ' . ( ( $hide_out_of_rating === '1' ) ? ' style="display:none;"' : '' ) . '><span itemprop="ratingValue">' . $rating . '</span>' . __( ' out of 5 stars', 'gpr' ) . '</p>';
+		$output        = '';
+		$rating_value  = '<p class="gpr-rating-value" ' . ( ( $hide_out_of_rating === '1' ) ? ' style="display:none;"' : '' ) . '><span>' . $rating . '</span>' . __( ' out of 5 stars', 'gpr' ) . '</p>';
 		$is_gpr_header = true;
 
+		//AVATAR
 		$google_img = '<div class="gpr-google-logo-wrap"><img src="' . GPR_PLUGIN_URL . '/assets/images/google-small-logo.png' . '" class="gpr-google-logo-header" title=" ' . __( 'Reviewed from Google', 'gpr' ) . '" alt="' . __( 'Reviewed from Google', 'gpr' ) . '" /></div>';
 
 
-		//Determine which schema tags to output
-		$schema_tags = 'itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating"';
+		//Header doesn't have a timestamp
 		if ( $unix_timestamp ) {
 			$is_gpr_header = false;
-			$schema_tags   = 'itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"';
 		}
-
 
 		//continue with output
 
-		$output = '<div class="gpr-rating-meta gpr-clearfix">';
-		$output .= '<div class="rating-wrap gpr-clearfix" ' . $schema_tags . '>';
 		$output .= '<div class="star-rating-wrap">';
 		$output .= '<div class="star-rating-size" style="width:' . ( 65 * $rating / 5 ) . 'px;"></div>';
 		$output .= '</div>';
@@ -512,8 +508,6 @@ class Google_Places_Reviews extends WP_Widget {
 		if ( $is_gpr_header === false ) {
 			$output .= $rating_value;
 		}
-
-		$output .= '</div>';
 
 		//Show timestamp for reviews
 		if ( $unix_timestamp ) {
@@ -532,8 +526,6 @@ class Google_Places_Reviews extends WP_Widget {
 			$output .= $rating_value;
 		}
 
-
-		$output .= '</div>';
 
 		return $output;
 

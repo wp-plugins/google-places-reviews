@@ -14,18 +14,29 @@ Global Header
 	margin: 0 0 15px;
 }
 
-[id*='gpr_widget'] .gpr-business-header .gpr-rating-value {
-	float: left;
+[id*='gpr_widget'] .gpr-business-header .gpr-header-content-wrap {
+	margin: 0 0 0 75px;
 }
 
+[id*='gpr_widget'] .gpr-business-header .star-rating-wrap {
+	margin: 0 6px 4px 0;
+}
+
+[id*='gpr_widget'] .gpr-business-header p.gpr-rating-value {
+	line-height: 15px;
+	width: 100%;
+}
+
+
 [id*='gpr_widget'] .gpr-business-avatar {
+	float: left;
 	width: 60px;
 	height: 60px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	float: left;
-	margin: 0 10px 10px 0;
+	margin: 0;
+	border-radius: 50%;
 }
 
 [id*='gpr_widget'] .gpr-business-name {
@@ -56,11 +67,11 @@ Global Header
 
 
 [id*='gpr_widget'] p.gpr-rating-value {
-    line-height: 14px;
     margin: 0;
-    font-size: 12px;
-    padding: 0;
-    float: left;
+	padding: 0;
+	float: left;
+	font-size: 12px;
+	line-height: 20px;
 }
 
 /*--------------------------------
@@ -69,10 +80,6 @@ Star Ratings Global
 [id*='gpr_widget'] div.rating-wrap {
 	line-height: 18px;
 	vertical-align: middle;
-	float: left;
-}
-
-[id*='gpr_widget'] .gpr-business-header div.rating-wrap {
 }
 
 [id*='gpr_widget'] .star-rating-wrap {
@@ -80,7 +87,7 @@ Star Ratings Global
 	height: 13px;
 	width: 67px;
 	float: left;
-	margin: 0 6px 5px 0;
+	margin: 3px 6px 0 0;
 }
 
 [id*='gpr_widget'] .star-rating-size {
@@ -89,13 +96,15 @@ Star Ratings Global
 }
 
 [id*='gpr_widget'] span.gpr-rating-time {
-	display: inline-block;
 	margin: 0;
 	padding: 0;
 	vertical-align: top;
 	color: #848484;
 	font-size: 12px;
-	line-height: 12px;
+	line-height: 13px;
+	font-style: italic;
+	float: left;
+	width: 100%;
 }
 
 [id*='gpr_widget'] div.gpr-business-header div.gpr-rating-value {
@@ -130,14 +139,19 @@ Global Reviews
 
 [id*='gpr_widget'] .gpr-review-avatar {
 	float: left;
-	margin: 0 10px 0 0;
+	margin: 0;
+	padding: 0;
 	width: 50px;
 	height: 50px;
 }
 
+[id*='gpr_widget'] div.gpr-review-info {
+	margin-left: 60px;
+}
+
 [id*='gpr_widget'] span.grp-reviewer-name {
 	display: block;
-	margin: 0 0 5px;
+	margin: 0;
 	line-height: 16px;
 }
 
@@ -160,9 +174,6 @@ Global Reviews
 	margin-bottom: 0;
 }
 
-[id*='gpr_widget'] .gpr-review .gpr-rating-meta {
-	height: 32px;
-}
 
 /*--------------------------------
 GPR Alerts
