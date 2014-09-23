@@ -87,5 +87,9 @@ Yes, there are three basic themes included in the free version of the plugin. Th
 
 == Changelog ==
 
+= 1.0.1 =
+* Removed improperly formatted schema.org tags
+*
+
 = 1.0 =
 * Initial Free version release!
