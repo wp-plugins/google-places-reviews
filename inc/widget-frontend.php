@@ -7,11 +7,13 @@
  */
 
 //Handle website link
-$website = isset( $response['result']['website'] ) ? $response['result']['website'] : '';
-if ( ! isset( $response['result']['website'] ) || empty( $response['result']['website'] ) ) {
-	//user g+ page since they have no website
-	$website = isset( $response['result']['url'] ) ? $response['result']['url'] : '';
+//use g+ page
+$website = isset( $response['result']['url'] ) ? $response['result']['url'] : '';
+if ( ! isset( $response['result']['url'] ) || empty( $response['result']['url'] ) ) {
+	//use website link if for some reason G+ page not in response
+	$website = isset( $response['result']['website'] ) ? $response['result']['website'] : '';
 }
+
 $place_avatar = isset( $response['place_avatar'] ) ? $response['place_avatar'] : GPR_PLUGIN_URL . '/assets/images/default-img.png';
 ?>
 
@@ -87,7 +89,7 @@ $place_avatar = isset( $response['place_avatar'] ) ? $response['place_avatar'] :
 									<img src="<?php echo $avatar; ?>" alt="<?php echo $author_name; ?>" title="<?php echo $author_name; ?>" />
 								</div>
 
-								<div class="gpr-review-info">
+								<div class="gpr-review-info gpr-clearfix">
 									<span class="grp-reviewer-name">
 										<?php if ( ! empty( $author_url ) ) { ?>
 											<a href="<?php echo $author_url; ?>"

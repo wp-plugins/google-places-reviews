@@ -121,7 +121,7 @@ class Google_Places_Reviews extends WP_Widget {
 
 		//loop through options array and save variables for usage within function
 		foreach ( $instance as $variable => $value ) {
-			${$variable} = ! isset( $instance[$variable] ) ? $this->widget_fields[$variable] : esc_attr( $instance[$variable] );
+			${$variable} = ! isset( $instance[ $variable ] ) ? $this->widget_fields[ $variable ] : esc_attr( $instance[ $variable ] );
 		}
 
 		//Enqueue individual CSS if debug is on; otherwise plugin uses min version
@@ -164,15 +164,14 @@ class Google_Places_Reviews extends WP_Widget {
 			),
 			'https://maps.googleapis.com/maps/api/place/details/json'
 		);
+		//serialize($instance) sets the transient cache from the $instance variable which can easily bust the cache once options are changed
+		$transient_unique_id = substr( $reference, 0, 25 );
+		$response            = get_transient( 'gpr_widget_api_' . $transient_unique_id );
+		$widget_options      = get_transient( 'gpr_widget_options_' . $transient_unique_id );
+		$serialized_instance = serialize( $instance );
 
 		// Cache: cache option is enabled
 		if ( $cache !== 'None' ) {
-
-			//serialize($instance) sets the transient cache from the $instance variable which can easily bust the cache once options are changed
-			$transient_unique_id = substr( $reference, 0, 25 );
-			$response            = get_transient( 'gpr_widget_api_' . $transient_unique_id );
-			$widget_options      = get_transient( 'gpr_widget_options_' . $transient_unique_id );
-			$serialized_instance = serialize( $instance );
 
 			// Check for an existing copy of our cached/transient data
 			// also check to see if widget options have updated; this will bust the cache
@@ -226,13 +225,26 @@ class Google_Places_Reviews extends WP_Widget {
 		if ( ! empty( $response->error_message ) ) {
 
 			$this->output_error_message( $response->error_message, 'error' );
+			$this->delete_transient_cache( $transient_unique_id );
 
 			return false;
+
 		} //No reference set for this widget
 		elseif ( empty( $reference ) ) {
-			$this->output_error_message( __( '<strong>INVALID REQUEST</strong>: Please check that this widget has a business reference set.', 'gpr' ), 'error' );
+
+			$this->output_error_message( __( '<strong>INVALID REQUEST</strong>: Please check that this widget has a Google business ID reference set.', 'gpr' ), 'error' );
+			$this->delete_transient_cache( $transient_unique_id );
 
 			return false;
+
+		} elseif ( isset( $response['error_message'] ) && ! empty( $response['error_message'] ) ) {
+
+			$error = '<strong>' . $response['status'] . '</strong>: ' . $response['error_message'];
+			$this->output_error_message( $error, 'error' );
+			$this->delete_transient_cache( $transient_unique_id );
+
+			return false;
+
 		}
 
 
@@ -291,7 +303,7 @@ class Google_Places_Reviews extends WP_Widget {
 		$instance = $old_instance;
 		//loop through options array and save to new instance
 		foreach ( $this->widget_fields as $field => $value ) {
-			$instance[$field] = strip_tags( stripslashes( $new_instance[$field] ) );
+			$instance[ $field ] = strip_tags( stripslashes( $new_instance[ $field ] ) );
 		}
 
 
@@ -315,7 +327,7 @@ class Google_Places_Reviews extends WP_Widget {
 
 		//loop through options array and save options to new instance
 		foreach ( $this->widget_fields as $field => $value ) {
-			${$field} = ! isset( $instance[$field] ) ? $value : esc_attr( $instance[$field] );
+			${$field} = ! isset( $instance[ $field ] ) ? $value : esc_attr( $instance[ $field ] );
 		}
 		//Get the widget form
 		include( GPR_PLUGIN_PATH . '/inc/widget-form.php' );
@@ -363,7 +375,6 @@ class Google_Places_Reviews extends WP_Widget {
 				$user_id = isset( $review['author_url'] ) ? str_replace( 'https://plus.google.com/', '', $review['author_url'] ) : '';
 
 				//Add args to
-
 				$request_url = add_query_arg(
 					array(
 						'alt' => 'json',
@@ -378,7 +389,6 @@ class Google_Places_Reviews extends WP_Widget {
 				$review = array_merge( $review, array( 'avatar' => $avatar_img ) );
 				//add full review to $gpr_views
 				array_push( $gpr_reviews, $review );
-
 
 			}
 
@@ -482,6 +492,10 @@ class Google_Places_Reviews extends WP_Widget {
 	 *
 	 * @param $rating
 	 * @param $unix_timestamp
+	 * @param $hide_out_of_rating
+	 * @param $hide_google_image
+	 *
+	 * @return string
 	 */
 	function get_star_rating( $rating, $unix_timestamp, $hide_out_of_rating, $hide_google_image ) {
 
@@ -584,5 +598,15 @@ class Google_Places_Reviews extends WP_Widget {
 
 	}
 
+	/**
+	 * Delete Transient Cache
+	 *
+	 * Removes the transient cache when an error is displayed as to not cache error results
+	 */
+
+	function delete_transient_cache( $transient_unique_id ) {
+		delete_transient( 'gpr_widget_api_' . $transient_unique_id );
+		delete_transient( 'gpr_widget_options_' . $transient_unique_id );
+	}
 
 } //end Google_Places_Reviews Class

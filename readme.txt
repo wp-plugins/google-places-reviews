@@ -3,8 +3,8 @@ Contributors: dlocc, wordimpress
 Donate link: http://wordimpress.com/
 Tags: google, reviews, google reviews, google places, google places reviews, google review widget, google business reviews, google review, review, google place review
 Requires at least: 3.6
-Tested up to: 3.9.1
-Stable tag: 1.0.1
+Tested up to: 4.0
+Stable tag: 1.1.0
 
 Google Places Reviews makes it a breeze for you to display reviews on your WordPress website that help boost consumer confidence and search engine optimization.
 
@@ -44,7 +44,6 @@ Google Places Reviews Pro is a significant upgrade to Google Places Reviews that
 
 * More Reviews - Display up to 5 reviews using the Google Places API
 * Powerful Shortcode - Display reviews in your post and page content
-* Schema.org Tags for SEO - Help search engines find the information quickly and display reviews of a company’s product and services on search engine results pages
 * Review concatenation - Some reviews returned by Google may be very long which could result in a very long widget. The Pro version includes a customizable feature for collapsing and expanding long reviews with "Read more" and "Close" links.
 * Fast loading - Optimized widget caching included within the plugin ensure you save on load time and API calls
 * Priority Support - Get fast and responsive support from WordPress experts in the USA for the lifetime of your license.
@@ -83,9 +82,14 @@ Yes, there are three basic themes included in the free version of the plugin. Th
 
 5. The plugins settings page found under Settings > Google Reviews
 
-
-
 == Changelog ==
+
+= 1.1.0 =
+* New: Plugin thumbnail that now appears in WP repo search
+* Improvement: If an error occurs the widget will output them and then ensure that the bad result is not cached so if the user fixes the error they won't have to manually clear the cache.
+* Minor improvements the the widget's frontend appearance
+* Fixed bad links to plugin docs
+* Tested WP 4.0 functionality to approve bumping version compatibility
 
 = 1.0.1 =
 * Update: Removed schema.org tags from the free version of the plugin.
