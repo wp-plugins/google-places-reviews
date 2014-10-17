@@ -1,5 +1,5 @@
 === Google Places Reviews ===
-Contributors: dlocc, wordimpress
+Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google, reviews, google reviews, google places, google places reviews, google review widget, google business reviews, google review, review, google place review
 Requires at least: 3.6
