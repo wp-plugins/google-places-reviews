@@ -20,20 +20,20 @@ class Google_Places_Reviews extends WP_Widget {
 	 * @var array
 	 */
 	public $widget_fields = array(
-		'title'              => '',
-		'location'           => '',
-		'reference'          => '',
-		'cache'              => '',
-		'title_output'       => '',
-		'widget_style'       => 'Bare Bones',
-		'review_filter'      => '',
-		'review_limit'       => '5',
-		'review_characters'  => '1',
-		'hide_header'        => '',
-		'hide_out_of_rating' => '',
-		'hide_google_image'  => '',
-		'target_blank'       => '1',
-		'no_follow'          => '1',
+		'title'                => '',
+		'location'             => '',
+		'reference'            => '',
+		'cache'                => '',
+		'disable_title_output' => '',
+		'widget_style'         => 'Bare Bones',
+		'review_filter'        => '',
+		'review_limit'         => '5',
+		'review_characters'    => '1',
+		'hide_header'          => '',
+		'hide_out_of_rating'   => '',
+		'hide_google_image'    => '',
+		'target_blank'         => '1',
+		'no_follow'            => '1',
 	);
 
 
@@ -263,12 +263,11 @@ class Google_Places_Reviews extends WP_Widget {
 			$before_widget = str_replace( 'class="', 'class="' . $style . ' ', $before_widget );
 		}
 
-
 		/* Before widget */
 		echo $before_widget;
 
 		// if the title is set & the user hasn't disabled title output
-		if ( ! empty( $title ) ) {
+		if ( ! empty( $title ) && $disable_title_output !== '1' ) {
 			/* Add class to before_widget from within a custom widget
 		 http://wordpress.stackexchange.com/questions/18942/add-class-to-before-widget-from-within-a-custom-widget
 		 */

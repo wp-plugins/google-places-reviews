@@ -229,7 +229,7 @@
     <p>
         <input id="<?php echo $this->get_field_id('disable_title_output'); ?>"
                name="<?php echo $this->get_field_name('disable_title_output'); ?>" type="checkbox"
-               value="1" <?php checked('1', $title_output); ?>/>
+               value="1" <?php checked('1', $disable_title_output); ?>/>
         <label
             for="<?php echo $this->get_field_id('disable_title_output'); ?>"><?php _e('Disable Title Output', 'gpr'); ?>
             <img src="<?php echo GPR_PLUGIN_URL . '/assets/images/help.png' ?>"
