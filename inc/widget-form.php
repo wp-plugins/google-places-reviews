@@ -120,8 +120,8 @@
 
     <!-- Widget Theme -->
     <p>
-        <label for="<?php echo $this->get_field_id('widget_style'); ?>"><?php _e('Widget Theme'); ?>: <img src="<?php echo GPR_PLUGIN_URL . '/assets/images/help.png' ?>"
-                         title="<?php _e('Widget themes provide a way ', 'gpr'); ?>"
+        <label for="<?php echo $this->get_field_id('widget_style'); ?>"><?php _e('Widget Theme', 'gpr'); ?>: <img src="<?php echo GPR_PLUGIN_URL . '/assets/images/help.png' ?>"
+                         title="<?php _e('Widget themes provide a way', 'gpr'); ?>"
                          class="tooltip-info" width="16" height="16"/></label>
         <select name="<?php echo $this->get_field_name('widget_style'); ?>" class="widefat profield">
             <?php
@@ -192,7 +192,7 @@
     <p>
         <label for="<?php echo $this->get_field_id('cache'); ?>"><?php _e('Cache Data:', 'gpr'); ?>
             <img src="<?php echo GPR_PLUGIN_URL . '/assets/images/help.png' ?>"
-                 title="<?php _e('Caching data will save Google Place data to your database in order to speed up response times and conserve API requests. The suggested settings is 1 Day. ', 'gpr'); ?>"
+                 title="<?php _e('Caching data will save Google Place data to your database in order to speed up response times and conserve API requests. The suggested settings is 1 Day.', 'gpr'); ?>"
                  class="tooltip-info" width="16" height="16"/></label>
 
         <select name="<?php echo $this->get_field_name('cache'); ?>" id="<?php echo $this->get_field_id('cache'); ?>"
@@ -219,8 +219,8 @@
     <!-- Clear Cache Button -->
     <p class="clearfix">
         <span class="cache-message"></span>
-        <a href="#" class="button gpr-clear-cache" title="Clear" data-transient-id-1="gpr_widget_api"
-           data-transient-id-2="gpr_widget_options">Clear Cache</a>
+        <a href="#" class="button gpr-clear-cache" title="<?php _e('Clear', 'gpr'); ?>" data-transient-id-1="gpr_widget_api"
+           data-transient-id-2="gpr_widget_options"><?php _e('Clear Cache', 'gpr'); ?></a>
         <span class="cache-clearing-loading spinner"></span>
     </p>
 

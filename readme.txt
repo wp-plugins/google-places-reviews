@@ -48,6 +48,15 @@ Google Places Reviews Pro is a significant upgrade to Google Places Reviews that
 * Fast loading - Optimized widget caching included within the plugin ensure you save on load time and API calls
 * Priority Support - Get fast and responsive support from WordPress experts in the USA for the lifetime of your license.
 
+= Other Business Reviews Plugins =
+
+Why limit your reviews to just Google Places Reviews? Check out our other free business reviews plugins to add to your site as well:
+
+* [YELP Widget Pro](https://wordpress.org/plugins/yelp-widget-pro "YELP Widget Pro")
+* [Yellow Pages Reviews](https://wordpress.org/plugins/yellow-pages-reviews/ "Google Places Reviews")
+* Get all three of our Premium Business Reviews plugins for one low price. [Premium Business Reviews Bundle](https://wordimpress.com/plugins/business-reviews-bundle/?utm_source=WordPress.org&utm_medium=readme&utm_campaign=Yellow%20Pages%20Repo "Premium Business Reviews Bundle")
+
+
 == Installation ==
 
 1. Upload the `google-places-reviews` folder and it's contents to the `/wp-content/plugins/` directory or install via the WP plugins panel in your WordPress admin dashboard

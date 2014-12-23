@@ -77,7 +77,7 @@ if ( ! class_exists( 'GPR_Plugin_Framework' ) ) {
 			$this->basename   = plugin_basename( $this->file );
 			$this->slug       = sanitize_key( $this->meta['Name'] );
 			$this->version    = sanitize_text_field( $this->meta['Version'] );
-			$this->textdomain = sanitize_html_class( $this->meta['TextDomain'] );
+//			$this->textdomain = sanitize_html_class( $this->meta['TextDomain'] );
 			$this->name       = $this->meta['Name'];
 			$this->url        = plugins_url( '', $this->file );
 			$this->option     = $this->slug . '_options';
@@ -85,7 +85,7 @@ if ( ! class_exists( 'GPR_Plugin_Framework' ) ) {
 			$this->views      = trailingslashit( path_join( plugin_dir_path( $this->file ), trim( $this->args['views'], '/' ) ) );
 			$this->assets     = trim( $this->args['assets'], '/' );
 			// Make plugin available for translation
-			load_plugin_textdomain( $this->textdomain, false, trailingslashit( path_join( dirname( $this->basename ), trim( $this->meta['DomainPath'], '/' ) ) ) );
+			load_plugin_textdomain( 'gpr', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 		}
 
@@ -328,7 +328,7 @@ if ( ! class_exists( 'GPR_Plugin_Framework' ) ) {
 		 * Add settings link to plugins dashboard
 		 */
 		function add_settings_link( $links ) {
-			$links[] = '<a href="' . $this->admin_url . '">' . __( 'Settings', $this->textdomain ) . '</a>';
+			$links[] = '<a href="' . $this->admin_url . '">' . __( 'Settings', 'gpr' ) . '</a>';
 
 			return $links;
 		}

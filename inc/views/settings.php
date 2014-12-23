@@ -16,11 +16,11 @@
 	// Show notifications
 	$this->notifications(
 		array(
-			'js'          => __( 'For full functionality of this page it is recommended to enable javascript.', $this->textdomain ),
-			'reseted'     => __( 'Settings Reset Successfully', $this->textdomain ),
-			'not-reseted' => __( 'Plugins already set to default settings', $this->textdomain ),
-			'saved'       => __( 'Settings saved successfully', $this->textdomain ),
-			'not-saved'   => __( 'Settings not saved due to no changes being made.', $this->textdomain )
+			'js'          => __( 'For full functionality of this page it is recommended to enable javascript.', 'gpr' ),
+			'reseted'     => __( 'Settings Reset Successfully', 'gpr' ),
+			'not-reseted' => __( 'Plugins already set to default settings', 'gpr' ),
+			'saved'       => __( 'Settings saved successfully', 'gpr' ),
+			'not-saved'   => __( 'Settings not saved due to no changes being made.', 'gpr' )
 		)
 	);
 	?>

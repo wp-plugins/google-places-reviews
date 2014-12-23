@@ -30,13 +30,17 @@ function init_google_places_reviews_widget() {
 	$google_places_reviews->add_options_page( array(), $google_places_reviews_options );
 
 	// Make plugin meta translatable
-	__( 'Google Places Reviews', $google_places_reviews->textdomain );
-	__( 'Devin Walker', $google_places_reviews->textdomain );
-	__( 'gpr', $google_places_reviews->textdomain );
+	__( 'Google Places Reviews', 'gpr' );
+	__( 'Devin Walker', 'gpr' );
+	__( 'gpr', 'gpr' );
 
 	//Include the widget
 	if ( ! class_exists( 'Google_Places_Reviews' ) ) {
 		require 'classes/widget.php';
+	}
+
+	if (is_admin()) {
+		include GPR_PLUGIN_PATH . '/admin/admin.php';
 	}
 
 	return $google_places_reviews;
