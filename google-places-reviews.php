@@ -3,10 +3,11 @@
 Plugin Name: Google Places Reviews
 Plugin URI: http://wordimpress.com/plugins/google-places-reviews-pro/
 Description: Display Google Places Reviews for one or many businesses anywhere on your WordPress site using an easy to use and intuitive widget.
-Version: 1.1.1
+Version: 1.1.2
 Author: Devin Walker
 Author URI: http://imdev.in/
 Text Domain: gpr
+License: GPL2
 */
 
 define( 'GPR_PLUGIN_NAME', 'google-places-reviews' );
@@ -30,13 +31,17 @@ function init_google_places_reviews_widget() {
 	$google_places_reviews->add_options_page( array(), $google_places_reviews_options );
 
 	// Make plugin meta translatable
-	__( 'Google Places Reviews', $google_places_reviews->textdomain );
-	__( 'Devin Walker', $google_places_reviews->textdomain );
-	__( 'gpr', $google_places_reviews->textdomain );
+	__( 'Google Places Reviews', 'gpr' );
+	__( 'Devin Walker', 'gpr' );
+	__( 'gpr', 'gpr' );
 
 	//Include the widget
 	if ( ! class_exists( 'Google_Places_Reviews' ) ) {
 		require 'classes/widget.php';
+	}
+
+	if (is_admin()) {
+		include GPR_PLUGIN_PATH . '/admin/admin.php';
 	}
 
 	return $google_places_reviews;
