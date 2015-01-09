@@ -3,7 +3,7 @@ Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google, reviews, google reviews, google places, google places reviews, google review widget, google business reviews, google review, review, google place review
 Requires at least: 3.6
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.1.2
 License: GPL2
 
