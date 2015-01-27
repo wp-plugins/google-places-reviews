@@ -62,7 +62,7 @@ $place_avatar = isset( $response['place_avatar'] ) ? $response['place_avatar'] :
 			<div class="gpr-reviews-wrap">
 				<?php
 				$counter = 0;
-				$review_limit = isset( $review_limit ) ? $review_limit : 5;
+				$review_limit = isset( $review_limit ) ? $review_limit : 3;
 
 				//Loop Google Places reviews
 				foreach ( $response['gpr_reviews'] as $review ) {

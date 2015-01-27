@@ -4,7 +4,7 @@ Donate link: http://wordimpress.com/
 Tags: google, reviews, google reviews, google places, google places reviews, google review widget, google business reviews, google review, review, google place review
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPL2
 
 Display Google Places Reviews on your WordPress website and help boost consumer confidence and search engine optimization.
@@ -49,14 +49,13 @@ Google Places Reviews Pro is a significant upgrade to Google Places Reviews that
 * Fast loading - Optimized widget caching included within the plugin ensure you save on load time and API calls
 * Priority Support - Get fast and responsive support from WordPress experts in the USA for the lifetime of your license.
 
-= Other Business Reviews Plugins =
+= Additional Business Reviews Plugins =
 
 Why limit your reviews to just Google Places Reviews? Check out our other free business reviews plugins to add to your site as well:
 
-* [YELP Widget Pro](https://wordpress.org/plugins/yelp-widget-pro "YELP Widget Pro")
+* [Yelp Widget Pro](https://wordpress.org/plugins/yelp-widget-pro "Yelp Widget Pro")
 * [Yellow Pages Reviews](https://wordpress.org/plugins/yellow-pages-reviews/ "Google Places Reviews")
 * Get all three of our Premium Business Reviews plugins for one low price. [Premium Business Reviews Bundle](https://wordimpress.com/plugins/business-reviews-bundle/?utm_source=WordPress.org&utm_medium=readme&utm_campaign=Yellow%20Pages%20Repo "Premium Business Reviews Bundle")
-
 
 == Installation ==
 
@@ -97,8 +96,11 @@ Version 1.1.2 is mostly cosmetic changes. But if you are using Google Places Rev
 
 == Changelog ==
 
+= 1.1.3 =
+* Modified text in activation banners so it's more informative & relevant to the free version
+
 = 1.1.2 =
-* Added Activation Banner
+* Added activation banner
 * Updated readme.txt
 * Fully I18n (internationalization) ready
 

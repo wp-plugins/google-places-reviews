@@ -221,7 +221,7 @@ function gpr_activation_admin_notice() {
             <div class="updated gpr">
                 <header>
                     <img src="<?php echo GPR_PLUGIN_URL; ?>/assets/images/google-places-reviews-plugin-page-banner.jpg"  class="gpr-logo"/>
-                    <h3><?php _e('Thanks for installing Google Places Reviews Pro!','gpr'); ?></h3>
+                    <h3><?php _e('Thanks for installing Google Places Reviews (Free Version)!','gpr'); ?></h3>
                     <?php printf(__('<a href="%1$s" class="dismiss"></a>', 'gpr'), '?gpr_nag_ignore=0'); ?>
                 </header>
                 <div class="gpr-actions">
@@ -232,8 +232,8 @@ function gpr_activation_admin_notice() {
                     </div>
 
                     <div class="gpr-action">
-                        <a href="<?php echo admin_url(); ?>widgets.php">
-                            <span class="dashicons dashicons-admin-generic"></span><?php _e('Add a Google Reviews Widget','gpr'); ?>
+                        <a href="https://wordimpress.com/plugins/google-places-reviews-pro/" target="_blank">
+                            <span class="dashicons dashicons-download"></span><?php _e('Upgrade to Pro','gpr'); ?>
                         </a>
                     </div>
 
