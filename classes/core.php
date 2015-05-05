@@ -87,6 +87,9 @@ if ( ! class_exists( 'GPR_Plugin_Framework' ) ) {
 			// Make plugin available for translation
 			load_plugin_textdomain( 'gpr', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
+			//define a version constant
+			define('GPR_VERSION', $this->version);
+
 		}
 
 		/**

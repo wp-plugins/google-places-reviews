@@ -2,8 +2,8 @@
 Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: google, reviews, google reviews, google places, google places reviews, google review widget, google business reviews, google review, review, google place review
-Requires at least: 3.6
-Tested up to: 4.1
+Requires at least: 3.8
+Tested up to: 4.2.1
 Stable tag: 1.1.3
 License: GPL2
 
@@ -91,10 +91,20 @@ Yes, there are three basic themes included in the free version of the plugin. Th
 
 5. The plugins settings page found under Settings > Google Reviews
 
-== Upgrade Notice ==
-Version 1.1.2 is mostly cosmetic changes. But if you are using Google Places Reviews in a language other than English, this update makes it fully Internationalized. We are looking for translators. Read at https://wordimpress.com/docs/languages
-
 == Changelog ==
+
+= 1.2 =
+* New: Language .pot file for translators
+* New: Added additional widget field tooltips
+* New: Place "Type" filter to help users find their locations' Place ID on Google
+* Update: Switched from Google Places API "Reference" to "Place ID"
+* Update: Textdomain changed from 'google-places-reviews' to a much more manageable 'gpr'
+* Update: Better tooltip output using new gpr_admin_tooltip function
+* Update: Removed usage of GPR_DEBUG in favor of SCRIPT_DEBUG constant
+* Fix: "Clear Cache" button under Advanced Options now actually clears the cache
+* Fix: Several minor PHP warnings and notices
+* Fix: UX improvement: "Hide Google Logo" label wasn't click-able to select checkbox, now it is
+* Fix: Minor admin CSS touch ups for WP 4.2
 
 = 1.1.3 =
 * Modified text in activation banners so it's more informative & relevant to the free version

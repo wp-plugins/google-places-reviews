@@ -2,27 +2,55 @@
  *  Google Places Reviews JS: WP Admin
  *
  *  @description: JavaScripts for the admin side of the widget
- *  @author: Devin Walker
- *  @since: 1.0
  */
 
 (function ( $ ) {
 	"use strict";
 
-	/**
-	 * Initialize this bad boy
-	 */
-	$( function () {
+	//var loadAPIPromise;
+	//// Load API
+	//function loadAPI( callback ) {
+	//
+	//	if ( !loadAPIPromise ) {
+	//		var deferred = $.Deferred();
+	//		$.ajax( {
+	//			url     : 'http://www.google.com/jsapi/',
+	//			dataType: "script",
+	//			success : function () {
+	//				google.load( 'maps', '3', {
+	//					callback    : function () {
+	//						deferred.resolve();
+	//					},
+	//					other_params: 'sensor=false&libraries=places'
+	//				} );
+	//			}
+	//		} );
+	//		loadAPIPromise = deferred.promise();
+	//	}
+	//	loadAPIPromise.done( callback );
+	//}
+	//
+	//
+	$( window ).load( function () {
+		//loadAPI( init )
+		init();
+	} );
 
-		//Initialize the API Request Method widget radio input toggles
+	// Init
+	// @public
+	function init() {
+		/*
+		 * Initialize the API Request Method widget radio input toggles
+		 */
 		gpr_widget_toogles();
 		gpr_initialize_autocomplete();
 		gpr_tipsy();
 
-	} );
+	}
+
 
 	/**
-	 * Clear Cache on Click
+	 * On DOM load
 	 */
 	$( document ).on( 'click', '.gpr-clear-cache', function ( e ) {
 		e.preventDefault();
@@ -36,6 +64,7 @@
 
 		// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
 		jQuery.post( ajaxurl, data, function ( response ) {
+			console.log(response);
 			$( '.cache-clearing-loading' ).hide();
 			$this.prev( '.cache-message' ).text( response ).fadeIn( 'fast' ).delay( 2000 ).fadeOut();
 		} );
@@ -44,7 +73,9 @@
 
 
 	/**
-	 * Function to Refresh jQuery toggles for Yelp Widget Pro upon saving specific widget
+	 * AJAX Success
+	 *
+	 * @description: Function to Refresh jQuery toggles for Yelp Widget Pro upon saving specific widget
 	 */
 	$( document ).ajaxSuccess( function ( e, xhr, settings ) {
 		gpr_widget_toogles();
@@ -54,7 +85,7 @@
 
 
 	/**
-	 * Hover Toggle Containers
+	 * Widget Toggles
 	 */
 	function gpr_widget_toogles() {
 
@@ -69,6 +100,22 @@
 		} );
 
 
+		//Review character limit toggle
+		$( '.limit-reviews-option' ).each( function () {
+
+			var review_char_option = $( this ).find( 'input' );
+			var review_char_option_value = review_char_option.prop( 'checked' );
+			var review_char_set_wrap = $( this ).next( '.review-character-limit' );
+
+			//if clicked now
+			review_char_option.on( 'click', function () {
+				review_char_set_wrap.slideToggle();
+			} );
+
+
+		} );
+
+
 	}
 
 	/**
@@ -76,12 +123,20 @@
 	 */
 	function gpr_initialize_autocomplete() {
 		var input = $( '.gpr-autocomplete' );
+		var types = $( '.gpr-types' );
 
 		input.each( function ( index, value ) {
-			var options = {
-				types: ['establishment']
-			};
-			var autocomplete = new google.maps.places.Autocomplete( input[index], options );
+
+			var autocomplete = new google.maps.places.Autocomplete( input[index] );
+
+			//Handle type select field
+			$( types ).on( 'change', function () {
+				//Set type
+				var type = $( this ).val();
+				autocomplete.setTypes( [type] );
+				$( input ).val( '' );
+			} );
+
 			add_autocomplete_listener( autocomplete, input[index] );
 
 			//Tame the enter key to not save the widget while using the autocomplete input
@@ -95,27 +150,33 @@
 
 	}
 
+
+	/**
+	 * Google Maps API Autocomplete Listener
+	 *
+	 * @param autocomplete
+	 * @param input
+	 */
 	function add_autocomplete_listener( autocomplete, input ) {
+
 		google.maps.event.addListener( autocomplete, 'place_changed', function () {
 
 			var place = autocomplete.getPlace();
-			if ( !place.reference ) {
-				alert( 'No place reference found for this location.' )
+
+			if ( !place.place_id ) {
+				alert( 'No place reference found for this location.' );
+				return false;
 			}
 
-			//set location and reference hidden input value
+			//set location and Place ID hidden input value
 			$( input ).parentsUntil( 'form' ).find( '.location' ).val( place.name );
-			$( input ).parentsUntil( 'form' ).find( '.reference' ).val( place.reference );
+			$( input ).parentsUntil( 'form' ).find( '.place_id' ).val( place.place_id );
 			$( input ).parentsUntil( 'form' ).find( '.set-business' ).slideDown();
-
 
 		} );
 	}
 
 
-	/**
-	 * Tipsy Tooltips for Info Bubbles
-	 */
 	function gpr_tipsy() {
 		//Tooltips for admins
 		$( '.tooltip-info' ).tipsy( {
@@ -127,4 +188,5 @@
 		} );
 	}
 
-})( jQuery );
+})
+( jQuery );

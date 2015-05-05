@@ -13,11 +13,12 @@ if ( ! isset( $response['result']['url'] ) || empty( $response['result']['url'] 
 	//use website link if for some reason G+ page not in response
 	$website = isset( $response['result']['website'] ) ? $response['result']['website'] : '';
 }
+$name = isset( $response['result']['name'] ) ? $response['result']['name'] : __('Sorry, this business does not have a proper Place ID set.', 'gpr');
 
 $place_avatar = isset( $response['place_avatar'] ) ? $response['place_avatar'] : GPR_PLUGIN_URL . '/assets/images/default-img.png';
 ?>
 
-	<div class="gpr-<?php echo sanitize_title( $widget_style ); ?>">
+	<div class="gpr-<?php echo sanitize_title( $widget_style ); ?> gpr-widget-inner">
 
 		<?php
 
@@ -30,7 +31,7 @@ $place_avatar = isset( $response['place_avatar'] ) ? $response['place_avatar'] :
 				<div class="gpr-business-avatar" style="background-image: url(<?php echo $place_avatar; ?>)"></div>
 
 				<div class="gpr-header-content-wrap gpr-clearfix">
-					<span class="gpr-business-name"><a href="<?php echo $website; ?>" title="<?php echo $response['result']['name']; ?>" <?php echo $target_blank . $no_follow; ?>><span><?php echo $response['result']['name']; ?></span></a></span>
+					<span class="gpr-business-name"><a href="<?php echo $website; ?>" title="<?php echo $name; ?>" <?php echo $target_blank . $no_follow; ?>><span><?php echo $name; ?></span></a></span>
 
 					<?php
 					//Overall rating for biz display:

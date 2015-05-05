@@ -14,7 +14,6 @@ define( 'GPR_PLUGIN_NAME', 'google-places-reviews' );
 define( 'GPR_PLUGIN_NAME_PLUGIN', plugin_basename( __FILE__ ) );
 define( 'GPR_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'GPR_PLUGIN_URL', plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) );
-define( 'GPR_DEBUG', false );
 
 function init_google_places_reviews_widget() {
 
@@ -40,8 +39,15 @@ function init_google_places_reviews_widget() {
 		require 'classes/widget.php';
 	}
 
-	if (is_admin()) {
-		include GPR_PLUGIN_PATH . '/admin/admin.php';
+	//Admin only
+	if ( is_admin() ) {
+		//Deactivating normal activation banner for upgrade to Place ID banner
+		require_once GPR_PLUGIN_PATH . '/inc/admin.php';
+
+		//Display our upgrade notice
+		require_once GPR_PLUGIN_PATH . '/inc/upgrades/upgrade-functions.php';
+		require_once GPR_PLUGIN_PATH . '/inc/upgrades/upgrades.php';
+
 	}
 
 	return $google_places_reviews;

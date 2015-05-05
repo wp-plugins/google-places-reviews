@@ -23,9 +23,11 @@ class Google_Places_Reviews extends WP_Widget {
 		'title'                => '',
 		'location'             => '',
 		'reference'            => '',
+		'place_id'             => '',
+		'place_type'           => '',
 		'cache'                => '',
 		'disable_title_output' => '',
-		'widget_style'         => 'Bare Bones',
+		'widget_style'         => 'Minimal Light',
 		'review_filter'        => '',
 		'review_limit'         => '5',
 		'review_characters'    => '1',
@@ -64,7 +66,7 @@ class Google_Places_Reviews extends WP_Widget {
 	//Load Widget JS Script ONLY on Widget page
 	function add_gpr_admin_widget_scripts( $hook ) {
 
-		$suffix = defined( 'GPR_DEBUG' ) && GPR_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		if ( $hook == 'widgets.php' ) {
 
@@ -92,12 +94,10 @@ class Google_Places_Reviews extends WP_Widget {
 	/**
 	 * Adds Google Places Reviews Stylesheets
 	 */
-
 	function add_gpr_widget_scripts() {
 
-		$suffix = defined( 'GPR_DEBUG' ) && GPR_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		//DEBUG off
 		$gpr_css = plugins_url( 'assets/css/google-places-reviews' . $suffix . '.css', dirname( __FILE__ ) );
 
 		if ( $this->options["disable_css"] !== "on" ) {
@@ -125,16 +125,17 @@ class Google_Places_Reviews extends WP_Widget {
 		}
 
 		//Enqueue individual CSS if debug is on; otherwise plugin uses min version
-		if ( defined( 'GPR_DEBUG' ) === true ) {
+		if ( defined( 'SCRIPT_DEBUG' ) === true ) {
 			$this->enqueue_widget_theme_scripts( $widget_style );
 		}
 
 		//Check for a reference. If none, output error
-		if ( $reference === 'No location set' ) {
-			$this->output_error_message( __( 'No location set yet for this widget.', 'gpr' ), 'error' );
+		if ( $reference === 'No location set' && empty( $place_id ) || empty( $reference ) && $place_id === 'No location set' ) {
+			$this->output_error_message( __( 'There is no location set for this widget yet.', 'gpr' ), 'error' );
 
 			return false;
 		}
+
 
 		//Title filter
 		if ( isset( $title ) ) {
@@ -156,16 +157,29 @@ class Google_Places_Reviews extends WP_Widget {
 			$no_follow = '';
 		}
 
-		//Add args to
-		$google_places_url = add_query_arg(
-			array(
-				'reference' => $reference,
-				'key'       => $this->api_key
-			),
-			'https://maps.googleapis.com/maps/api/place/details/json'
-		);
+		/**
+		 * Use the new Google Places ID (rather than reference) - but don't break older widgets/shortcodes
+		 */
+		if ( ( empty( $reference ) || $reference === 'No Location Set' && ! empty( $place_id ) && $place_id !== 'No location set' ) || strlen( $place_id ) < 80 ) {
+			$google_places_url = add_query_arg(
+				array(
+					'placeid' => $place_id,
+					'key'     => $this->api_key
+				),
+				'https://maps.googleapis.com/maps/api/place/details/json'
+			);
+		} else {
+			//User is on old Google's reference ID
+			$google_places_url = add_query_arg(
+				array(
+					'reference' => $reference,
+					'key'       => $this->api_key
+				),
+				'https://maps.googleapis.com/maps/api/place/details/json'
+			);
+		}
 		//serialize($instance) sets the transient cache from the $instance variable which can easily bust the cache once options are changed
-		$transient_unique_id = substr( $reference, 0, 25 );
+		$transient_unique_id = substr( $place_id, 0, 25 );
 		$response            = get_transient( 'gpr_widget_api_' . $transient_unique_id );
 		$widget_options      = get_transient( 'gpr_widget_options_' . $transient_unique_id );
 		$serialized_instance = serialize( $instance );
@@ -229,13 +243,13 @@ class Google_Places_Reviews extends WP_Widget {
 
 			return false;
 
-		} //No reference set for this widget
-		elseif ( empty( $reference ) ) {
+		} //No Place ID or Reference set for this widget
+		elseif ( empty( $reference ) && empty( $place_id ) ) {
 
-			$this->output_error_message( __( '<strong>INVALID REQUEST</strong>: Please check that this widget has a Google business ID reference set.', 'gpr' ), 'error' );
+			$this->output_error_message( __( '<strong>INVALID REQUEST</strong>: Please check that this widget has a Google Place ID set.', 'gpr' ), 'error' );
 			$this->delete_transient_cache( $transient_unique_id );
 
-			return false;
+			return;
 
 		} elseif ( isset( $response['error_message'] ) && ! empty( $response['error_message'] ) ) {
 
@@ -267,7 +281,7 @@ class Google_Places_Reviews extends WP_Widget {
 		echo $before_widget;
 
 		// if the title is set & the user hasn't disabled title output
-		if ( ! empty( $title ) && $disable_title_output !== '1' ) {
+		if ( ! empty( $title ) && isset( $disable_title_output ) && $disable_title_output !== '1' ) {
 			/* Add class to before_widget from within a custom widget
 		 http://wordpress.stackexchange.com/questions/18942/add-class-to-before-widget-from-within-a-custom-widget
 		 */
@@ -378,12 +392,12 @@ class Google_Places_Reviews extends WP_Widget {
 					array(
 						'alt' => 'json',
 					),
-					'http://picasaweb.google.com/data/entry/api/user/' . $user_id
+					'https://picasaweb.google.com/data/entry/api/user/' . $user_id
 				);
 
 				$avatar_get      = wp_remote_get( $request_url );
 				$avatar_get_body = json_decode( wp_remote_retrieve_body( $avatar_get ), true );
-				$avatar_img      = $avatar_get_body['entry']['gphoto$thumbnail']['$t'];
+				$avatar_img      = preg_replace( "/^http:/i", "https:", $avatar_get_body['entry']['gphoto$thumbnail']['$t'] );
 				//add array image to review array
 				$review = array_merge( $review, array( 'avatar' => $avatar_img ) );
 				//add full review to $gpr_views
@@ -428,7 +442,7 @@ class Google_Places_Reviews extends WP_Widget {
 	 */
 	function enqueue_widget_theme_scripts( $widget_style ) {
 
-		$suffix = defined( 'GPR_DEBUG' ) && GPR_DEBUG ? '' : '.min';
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		//Determine which CSS to pull
 		$css_raised  = GPR_PLUGIN_URL . '/assets/css/gpr-theme-raised' . $suffix . '.css';
@@ -503,7 +517,7 @@ class Google_Places_Reviews extends WP_Widget {
 		$is_gpr_header = true;
 
 		//AVATAR
-		$google_img = '<div class="gpr-google-logo-wrap"><img src="' . GPR_PLUGIN_URL . '/assets/images/google-small-logo.png' . '" class="gpr-google-logo-header" title=" ' . __( 'Reviewed from Google', 'gpr' ) . '" alt="' . __( 'Reviewed from Google', 'gpr' ) . '" /></div>';
+		$google_img = '<div class="gpr-google-logo-wrap"' . ( ( $hide_google_image === '1' ) ? ' style="display:none;"' : '' )  . '><img src="' . GPR_PLUGIN_URL . '/assets/images/google-small-logo.png' . '" class="gpr-google-logo-header" title=" ' . __( 'Reviewed from Google', 'gpr' ) . '" alt="' . __( 'Reviewed from Google', 'gpr' ) . '" /></div>';
 
 
 		//Header doesn't have a timestamp

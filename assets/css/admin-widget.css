@@ -115,6 +115,40 @@ p.pro-field {
 }
 
 /*----------------------------------------
+GPR Location Search
+-------------------------------------------*/
+
+div.gpr-place-search-wrap {
+	border: 1px solid #E4E4E4;
+	background: #F7F7F7;
+	padding: 10px;
+	margin: 0 0 10px;
+}
+
+div.gpr-place-search-wrap > p {
+	float: left;
+	margin: 0;
+}
+
+div.gpr-place-search-wrap > p.gpr-autocomplete {
+	width: 65%;
+	margin-right: 2%;
+}
+
+div.gpr-place-search-wrap > p.gpr-place-type {
+	width: 33%;
+}
+
+/* Set Business (slide down) */
+
+div.set-business {
+	padding: 10px;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+}
+
+/*----------------------------------------
 Alerts
 -------------------------------------------*/
 
@@ -175,13 +209,15 @@ Alerts
 
 .cache-clearing-loading.spinner {
 	float: left;
+	visibility: visible;
+	display: none;
 }
 
 .cache-message {
 	float: right;
 	max-width: 160px;
 	font-style: italic;
-	color: #B9B9B9;
+	color: green;
 	display: none;
 }
 
@@ -204,4 +240,26 @@ Alerts
 	height: 16px;
 	margin-bottom: 4px;
 	float: right;
+}
+
+.gpr-widget-alert {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+	text-align: center;
+	font-style: italic;
+}
+
+.gpr-widget-alert a {
+	color: #3c763d;
+	display: block;
+	padding: 8px;
+}
+
+.gpr-widget-alert a span {
+	background: url('../images/new-window-icon.png') no-repeat 0 0 rgba(0, 0, 0, 0);
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-left: 5px;
 }
