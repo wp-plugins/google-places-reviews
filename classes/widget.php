@@ -398,6 +398,12 @@ class Google_Places_Reviews extends WP_Widget {
 				$avatar_get      = wp_remote_get( $request_url );
 				$avatar_get_body = json_decode( wp_remote_retrieve_body( $avatar_get ), true );
 				$avatar_img      = preg_replace( "/^http:/i", "https:", $avatar_get_body['entry']['gphoto$thumbnail']['$t'] );
+
+				//check to see if image is empty (no broken images)
+				if ( empty( $avatar_img ) ) {
+					$avatar_img = GPR_PLUGIN_URL . '/assets/images/mystery-man.png';
+				}
+
 				//add array image to review array
 				$review = array_merge( $review, array( 'avatar' => $avatar_img ) );
 				//add full review to $gpr_views
@@ -517,7 +523,7 @@ class Google_Places_Reviews extends WP_Widget {
 		$is_gpr_header = true;
 
 		//AVATAR
-		$google_img = '<div class="gpr-google-logo-wrap"' . ( ( $hide_google_image === '1' ) ? ' style="display:none;"' : '' )  . '><img src="' . GPR_PLUGIN_URL . '/assets/images/google-small-logo.png' . '" class="gpr-google-logo-header" title=" ' . __( 'Reviewed from Google', 'gpr' ) . '" alt="' . __( 'Reviewed from Google', 'gpr' ) . '" /></div>';
+		$google_img = '<div class="gpr-google-logo-wrap"' . ( ( $hide_google_image === '1' ) ? ' style="display:none;"' : '' ) . '><img src="' . GPR_PLUGIN_URL . '/assets/images/google-small-logo.png' . '" class="gpr-google-logo-header" title=" ' . __( 'Reviewed from Google', 'gpr' ) . '" alt="' . __( 'Reviewed from Google', 'gpr' ) . '" /></div>';
 
 
 		//Header doesn't have a timestamp
