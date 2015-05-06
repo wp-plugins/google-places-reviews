@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Google Places Reviews Free\n"
+"POT-Creation-Date: 2015-05-05 15:42-0800\n"
+"PO-Revision-Date: 2015-05-05 15:42-0800\n"
+"Last-Translator: Matt Cromwell <matt@wordimpress.com>\n"
+"Language-Team: WordImpress <info@wordimpress.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/core.php:334
+msgid "Settings"
+msgstr ""
+
+#: classes/widget.php:51
+msgid "Display user reviews for any location found on Google Places."
+msgstr ""
+
+#: classes/widget.php:134
+msgid "There is no location set for this widget yet."
+msgstr ""
+
+#: classes/widget.php:249
+msgid ""
+"<strong>INVALID REQUEST</strong>: Please check that this widget has a Google "
+"Place ID set."
+msgstr ""
+
+#: classes/widget.php:335
+#, php-format
+msgid ""
+"<p><strong>Notice: </strong>No Google Places API key detected. You will need "
+"to create an API key to use Google Places Reviews. API keys are manage "
+"through the <a href=\"%1$s\" class=\"new-window\" target=\"_blank\" class="
+"\"new-window\">Google API Console</a>. For more information please see <a "
+"href=\"%2$s\"  target=\"_blank\"  class=\"new-window\" title=\"Google Places "
+"API Introduction\">this article</a>.</p> <p>Once you have obtained your API "
+"key enter it in the <a href=\"%3$s\" title=\"Google Places Reviews Plugin "
+"Settings\">plugin settings page</a>.</p>"
+msgstr ""
+
+#: classes/widget.php:516
+msgid " out of 5 stars"
+msgstr ""
+
+#: classes/widget.php:520
+msgid "Reviewed from Google"
+msgstr ""
+
+#: google-places-reviews.php:33
+msgid "Google Places Reviews"
+msgstr ""
+
+#: google-places-reviews.php:34
+msgid "Devin Walker"
+msgstr ""
+
+#: google-places-reviews.php:35
+msgid "gpr"
+msgstr ""
+
+#: inc/admin.php:224
+msgid "Thanks for installing Google Places Reviews (Free Version)!"
+msgstr ""
+
+#: inc/admin.php:225
+#, php-format
+msgid "<a href=\"%1$s\" class=\"dismiss\"></a>"
+msgstr ""
+
+#: inc/admin.php:230
+msgid "Go to Settings"
+msgstr ""
+
+#: inc/admin.php:236 inc/views/settings.php:5 inc/widget-form.php:261
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/admin.php:245
+msgid "Get notified of plugin updates:"
+msgstr ""
+
+#: inc/options.php:3
+msgid "About"
+msgstr ""
+
+#: inc/options.php:6
+msgid "Google Places API Key"
+msgstr ""
+
+#: inc/options.php:7
+#, php-format
+msgid ""
+"API keys are manage through the <a href=\"%1$s\" class=\"new-window\" target="
+"\"_blank\">Google API Console</a>. For more information please <a href=\"%2$s"
+"\" class=\"new-window\" target=\"_blank\">review these steps</a>."
+msgstr ""
+
+#: inc/options.php:11 inc/options.php:33
+msgid "Yes"
+msgstr ""
+
+#: inc/options.php:24
+msgid "Advanced Options"
+msgstr ""
+
+#: inc/options.php:28
+msgid "Disable Plugin CSS"
+msgstr ""
+
+#: inc/options.php:29
+msgid ""
+"Useful to style your own widget and for theme integration and optimization."
+msgstr ""
+
+#: inc/options.php:57
+msgid ""
+"The title text appears at the very top of the widget above all other "
+"elements."
+msgstr ""
+
+#: inc/options.php:60
+msgid ""
+"Enter the name of your Google Place in this field to retrieve it's Google "
+"Place ID. If no information is returned there you may have a conflict with "
+"another plugin or theme using Google Maps API."
+msgstr ""
+
+#: inc/options.php:63
+msgid ""
+"Specify how you would like to lookup your Google Places. Address instructs "
+"the Place Autocomplete service to return only geocoding results with a "
+"precise address. Establishment instructs the Place Autocomplete service to "
+"return only business results. The Regions type collection instructs the "
+"Places service to return any result matching the following types: locality, "
+"sublocality, postal_code, country, administrative_area_level_1, "
+"administrative_area_level_2."
+msgstr ""
+
+#: inc/options.php:66
+msgid "This is the name of the place returned by Google's Places API."
+msgstr ""
+
+#: inc/options.php:69
+msgid ""
+"The Google Place ID is a textual identifier that uniquely identifies a place "
+"and can be used to retrieve information about the place. This option is set "
+"using the \"Location Lookup\" field above."
+msgstr ""
+
+#: inc/options.php:72
+msgid ""
+"Filter bad reviews to prevent them from displaying. Please note that the "
+"Google Places API only allows for up to 5 total reviews displayed per "
+"location. This option may limit the total number further."
+msgstr ""
+
+#: inc/options.php:75
+msgid ""
+"Limit the number of reviews displayed for this location to a set number."
+msgstr ""
+
+#: inc/options.php:78
+msgid "Toggle on or off the link on the reviews name to their Google+ page."
+msgstr ""
+
+#: inc/options.php:81
+msgid ""
+"Some reviews may be very long and cause the widget to have a very large "
+"height. This option uses JavaScript to expand and collapse the text."
+msgstr ""
+
+#: inc/options.php:84
+msgid "Set the character limit for this review widget. Values are in pixels."
+msgstr ""
+
+#: inc/options.php:87
+msgid ""
+"Choose from a set of predefined widget styles. Want to style your own? Set "
+"it to 'Bare Bones' for easy CSS styling."
+msgstr ""
+
+#: inc/options.php:90
+msgid ""
+"Disable the main business information profile image, name, overall rating. "
+"Useful for displaying only ratings in the widget."
+msgstr ""
+
+#: inc/options.php:93
+msgid ""
+"Hide the text the appears after the star image displaying 'x out of 5 "
+"stars'. The text will still be output because it is important for SEO but it "
+"will be hidden with CSS."
+msgstr ""
+
+#: inc/options.php:96
+msgid "Prevent the Google logo from displaying in the reviews widget."
+msgstr ""
+
+#: inc/options.php:99
+msgid ""
+"Caching data will save Google Place data to your database in order to speed "
+"up response times and conserve API requests. The suggested settings is 1 Day."
+msgstr ""
+
+#: inc/options.php:102
+msgid ""
+"The title output is content within the 'Widget Title' field above. Disabling "
+"the title output may be useful for some themes."
+msgstr ""
+
+#: inc/options.php:105
+msgid ""
+"This option will add target='_blank' to the widget's links. This is useful "
+"to keep users on your website."
+msgstr ""
+
+#: inc/options.php:108
+msgid ""
+"This option will add rel='nofollow' to the widget's outgoing links. This "
+"option may be useful for SEO."
+msgstr ""
+
+#: inc/options.php:111
+msgid ""
+"Choose whether to float the widget to the right or left, or not at all. This "
+"is helpful for integrating within post content so text wraps around the "
+"widget if wanted. Default value is 'none'."
+msgstr ""
+
+#: inc/options.php:114
+msgid ""
+"Define a max-width property for the widget. Dimension value can be in pixel "
+"or percentage. Default value is '250px'."
+msgstr ""
+
+#: inc/options.php:117
+msgid ""
+"Output content before the main widget content. Useful to provide "
+"introductory text."
+msgstr ""
+
+#: inc/options.php:120
+msgid ""
+"Output content after the main widget content. Useful to provide a button or "
+"custom text inviting the user to perform an action or read a message."
+msgstr ""
+
+#: inc/upgrades/upgrade-functions.php:67
+msgid "Google Places Reviews Upgrades"
+msgstr ""
+
+#: inc/upgrades/upgrade-functions.php:83
+msgid "You do not have permission to do plugin upgrades"
+msgstr ""
+
+#: inc/upgrades/upgrade-functions.php:83
+msgid "Error"
+msgstr ""
+
+#: inc/upgrades/upgrades.php:46
+msgid "Google Places Review - Upgrade"
+msgstr ""
+
+#: inc/upgrades/upgrades.php:51 inc/upgrades/upgrades.php:69
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished."
+msgstr ""
+
+#: inc/upgrades/upgrades.php:55
+#, php-format
+msgid "Step %d of approximately %d running"
+msgstr ""
+
+#: inc/views/about.php:6
+msgid "Welcome to Google Places Reviews for WordPress"
+msgstr ""
+
+#: inc/views/about.php:7
+msgid ""
+"Google Places Reviews makes it a breeze to integrate Google reviews right "
+"into your WordPress website. All you need to get started using the plugin is "
+"a Google Places API key which is free and easy to create. After you create "
+"your API key enter it below and the plugin will be ready to use."
+msgstr ""
+
+#: inc/views/about.php:8
+#, php-format
+msgid ""
+"<p>If you ever have any questions or issues using the plugin please first "
+"refer to the <a href=\"%1$s\" target=\"_blank\" class=\"new-window"
+"\">documentation</a> and then if still unclear <a href=\"%1$s\" target="
+"\"_blank\" class=\"new-window\">contact support</a>.</p><p>Want more "
+"reviews, features and priority support? <strong><a href=\"%3$s\" target="
+"\"_blank\" class=\"new-window\">Upgrade to Pro!</a></strong><br> Use promo "
+"code at checkout <code>googleplaces20off</code> for a 20&#37; discount!  </p>"
+msgstr ""
+
+#: inc/views/closetab.php:6
+msgid "Save changes"
+msgstr ""
+
+#: inc/views/closetab.php:7
+msgid "Saving"
+msgstr ""
+
+#: inc/views/closetab.php:8
+msgid "Saved"
+msgstr ""
+
+#: inc/views/closetab.php:9
+msgid ""
+"Reset all settings to default. Are you sure? This action cannot be undone!"
+msgstr ""
+
+#: inc/views/closetab.php:9
+msgid "Restore default settings"
+msgstr ""
+
+#: inc/views/code.php:5
+msgid "Insert code"
+msgstr ""
+
+#: inc/views/notifications.php:5
+msgid "Instructions"
+msgstr ""
+
+#: inc/views/notifications.php:12 inc/views/notifications.php:20
+#: inc/views/notifications.php:28 inc/views/notifications.php:36
+msgid "Click to close"
+msgstr ""
+
+#: inc/views/options-intro.php:2
+msgid "Google Places Reviews Plugin Options"
+msgstr ""
+
+#: inc/views/options-intro.php:3
+msgid ""
+"The following options set plugin defaults and options on a global level."
+msgstr ""
+
+#: inc/views/settings.php:19
+msgid ""
+"For full functionality of this page it is recommended to enable javascript."
+msgstr ""
+
+#: inc/views/settings.php:20
+msgid "Settings Reset Successfully"
+msgstr ""
+
+#: inc/views/settings.php:21
+msgid "Plugins already set to default settings"
+msgstr ""
+
+#: inc/views/settings.php:22
+msgid "Settings saved successfully"
+msgstr ""
+
+#: inc/views/settings.php:23
+msgid "Settings not saved due to no changes being made."
+msgstr ""
+
+#: inc/views/social-media.php:3
+msgid "Like this plugin?  Give it a like on Facebook:"
+msgstr ""
+
+#: inc/views/upload.php:7
+msgid "Upload"
+msgstr ""
+
+#: inc/widget-form.php:11
+msgid "Widget Title"
+msgstr ""
+
+#: inc/widget-form.php:20
+msgid "Location Lookup"
+msgstr ""
+
+#: inc/widget-form.php:27
+msgid "Place Type"
+msgstr ""
+
+#: inc/widget-form.php:32
+msgid "All"
+msgstr ""
+
+#: inc/widget-form.php:36
+msgid "Addresses"
+msgstr ""
+
+#: inc/widget-form.php:40
+msgid "Establishments"
+msgstr ""
+
+#: inc/widget-form.php:44
+msgid "Regions"
+msgstr ""
+
+#: inc/widget-form.php:54
+msgid ""
+"<strong>Place Set:</strong> You have successfully set the place for this "
+"widget. To switch the place use the Location Lookup field above."
+msgstr ""
+
+#: inc/widget-form.php:57
+msgid "Location"
+msgstr ""
+
+#: inc/widget-form.php:66
+msgid "Location Reference ID"
+msgstr ""
+
+#: inc/widget-form.php:71
+msgid "Location Place ID"
+msgstr ""
+
+#: inc/widget-form.php:77
+msgid "Review Options"
+msgstr ""
+
+#: inc/widget-form.php:84
+msgid "Minimum Review Rating:"
+msgstr ""
+
+#: inc/widget-form.php:91
+msgid "No filter"
+msgstr ""
+
+#: inc/widget-form.php:95
+msgid "5 Stars"
+msgstr ""
+
+#: inc/widget-form.php:99
+msgid "4 Stars"
+msgstr ""
+
+#: inc/widget-form.php:103
+msgid "3 Stars"
+msgstr ""
+
+#: inc/widget-form.php:107
+msgid "2 Stars"
+msgstr ""
+
+#: inc/widget-form.php:111
+msgid "1 Star"
+msgstr ""
+
+#: inc/widget-form.php:120
+msgid "Limit Number of Reviews:"
+msgstr ""
+
+#: inc/widget-form.php:139
+msgid "Display Options"
+msgstr ""
+
+#: inc/widget-form.php:145
+msgid "Widget Theme"
+msgstr ""
+
+#: inc/widget-form.php:149
+msgid "Bare Bones"
+msgstr ""
+
+#: inc/widget-form.php:150
+msgid "Minimal Light"
+msgstr ""
+
+#: inc/widget-form.php:151
+msgid "Minimal Dark"
+msgstr ""
+
+#: inc/widget-form.php:152
+msgid "Shadow Light"
+msgstr ""
+
+#: inc/widget-form.php:153
+msgid "Shadow Dark"
+msgstr ""
+
+#: inc/widget-form.php:171
+msgid "Hide Business Information"
+msgstr ""
+
+#: inc/widget-form.php:178
+msgid "Hide \"x out of 5 stars\" text"
+msgstr ""
+
+#: inc/widget-form.php:186
+msgid "Hide Google logo"
+msgstr ""
+
+#: inc/widget-form.php:193
+msgid "Advanced Options:"
+msgstr ""
+
+#: inc/widget-form.php:200
+msgid "Cache Data:"
+msgstr ""
+
+#: inc/widget-form.php:205
+msgid "None"
+msgstr ""
+
+#: inc/widget-form.php:206
+msgid "1 Hour"
+msgstr ""
+
+#: inc/widget-form.php:207
+msgid "3 Hours"
+msgstr ""
+
+#: inc/widget-form.php:208
+msgid "6 Hours"
+msgstr ""
+
+#: inc/widget-form.php:209
+msgid "12 Hours"
+msgstr ""
+
+#: inc/widget-form.php:210
+msgid "1 Day"
+msgstr ""
+
+#: inc/widget-form.php:211
+msgid "2 Days"
+msgstr ""
+
+#: inc/widget-form.php:212
+msgid "1 Week"
+msgstr ""
+
+#: inc/widget-form.php:235
+msgid "Clear"
+msgstr ""
+
+#: inc/widget-form.php:235
+msgid "Clear Cache"
+msgstr ""
+
+#: inc/widget-form.php:243
+msgid "Disable Title Output"
+msgstr ""
+
+#: inc/widget-form.php:249
+msgid "Open Links in New Window"
+msgstr ""
+
+#: inc/widget-form.php:255
+msgid "No Follow Links"
+msgstr ""
+
+#: inc/widget-form.php:267
+msgid "Plugin Documentation"
+msgstr ""
+
+#: inc/widget-frontend.php:16
+msgid "Sorry, this business does not have a proper Place ID set."
+msgstr ""
+
+#: inc/widget-frontend.php:47
+#, php-format
+msgid ""
+"<a href=\"%1$s\" class=\"leave-review\" target=\"_blank\" class=\"new-window"
+"\">Write a review</a>"
+msgstr ""
+
+#: inc/widget-frontend.php:97
+msgid "View this profile."
+msgstr ""
+
+#: inc/widget-frontend.php:128
+#, php-format
+msgid ""
+"There are no reviews yet for this business. <a href=\"%1$s\" class=\"leave-"
+"review\" target=\"_blank\">Be the first to review</a>"
+msgstr ""
